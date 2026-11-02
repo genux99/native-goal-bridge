@@ -26,7 +26,7 @@ def sandbox(tmp_path, monkeypatch):
                                                'goals': {'max_turns': 3}})
     target = home / 'plugins/native-goal-bridge'
     target.mkdir(parents=True)
-    for name in ('plugin.yaml', '__init__.py', 'bridge.py'):
+    for name in ('plugin.yaml', '__init__.py', 'bridge.py', 'controls.py'):
         if (PLUGIN / name).exists():
             shutil.copyfile(PLUGIN / name, target / name)
     from hermes_cli.plugins import PluginManager

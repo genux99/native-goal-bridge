@@ -1,8 +1,8 @@
 name: native-goal-bridge
-version: 0.1.0
+version: 0.2.0
 requires_hermes: ">=0.22.5"
 manifest_version: 1
-description: Create one current-session native Goal without replacing goals or resetting their budget.
+description: Manage current-session native Goals without resetting turn budgets or replacing newer state.
 author: Leegenux
 kind: standalone
 provides_tools:

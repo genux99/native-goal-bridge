@@ -38,6 +38,9 @@ def execute(args, *, session_id):
             raw = db.get_meta('goal:' + session_id)
             state = goals.GoalState.from_json(raw) if raw else None
             return {'success': True, 'goal': json.loads(state.to_json()) if state else None}
+        if args['action'] in {'update', 'pause', 'resume'}:
+            from .controls import execute_control
+            return execute_control(args, session_id=session_id, db=db)
         raw = db.get_meta('goal:' + session_id)
         if raw is not None:
             return {'success': False, 'error': 'goal_exists',

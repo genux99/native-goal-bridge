@@ -56,8 +56,8 @@ def test_missing_host_binding_fails_closed(sandbox):
     assert call(CREATE, session_id=None)['error'] == 'missing_session'
 
 
-@pytest.mark.parametrize('action', ['pause', 'resume', 'clear', 'reset', 'gate'])
-def test_user_controls_are_not_model_mutations(sandbox, action):
+@pytest.mark.parametrize('action', ['clear', 'reset', 'gate'])
+def test_unexposed_controls_are_not_model_mutations(sandbox, action):
     _, _, call = sandbox
     assert call({'action': action})['error'] == 'invalid_arguments'
 
